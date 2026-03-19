@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #8cc18c;
+    --bg-dark: #0d5c2e;
+    /* --very-dark: #0c8160; */
+    --bg-bright: #0c8160;
+    --text: #e9ecef;
+    --shine: rgba(255, 255, 255, 0.1);
+    --black-text: black;
+    --shadow: rgba(0, 0, 0, 0.2)
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+    color: var(--black-text);
+    align-items: center;
+    font-size: 1em;
+    /* overflow-y: auto; */
+    /* min-height: 100vh; */
+}
+
+header,
+nav,
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px
+}
+
+header {
+    /* padding: 1rem 2rem; */
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+nav {
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--shine);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--shine);
+}
+
+/* nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+} */
+
+/* nav a:hover,
+nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+} */
+
+main {
+    flex: 1;
+    min-height: 60vh;
+}
+
+h1 {
+    align-self: flex-start;
+    padding: 20px;
+    color: var(--text);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* label {
+    font-weight: 600;
+    font-size: 0.9rem;
+} */
+
+/* input,
+select {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    margin-top: 5px;
+    cursor: pointer;
+} */
+
+/* .location {
+    margin-bottom: 0;
+} */
+
+/* .loc-container,
+.wthr-container {
+    height: 150px;
+    width: 150px;
+    background-color: aliceblue;
+} */
+table {
+    width: 100%;
+    max-width: 300px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: var(--shine);
+    backdrop-filter: blur(5px);
+    color: var(--text);
+}
+
+th,
+td {
+    border: 1px solid var(--primary);
+    padding: 10px;
+}
+
+th {
+    background-color: var(--bg-bright);
+    font-weight: bold;
+}
+
+.btn,
+.locs button,
+a.btn,
+select {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
+    border: 1px solid var(--primary);
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin-inline: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    background-color: var(--bg-bright);
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    /* min-width: 200px; */
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover,
+.btn:hover,
+a.btn:hover,
+select:hover {
+    filter: brightness(1.2);
+    background-color: var(--primary);
+    border-color: var(--text);
+    box-shadow: 0 0 12px var(--primary), 0 0 5px var(--primary);
+    transform: translateY(-2px);
+    color: var(--black-text);
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 20px;
+    gap: 20px;
+    /* height: 70vh; */
+    /* width: 100%; */
+    max-width: 1200px;
+    margin: 40px auto;
+    align-items: start;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .controls {
+        align-content: center;
+    }
+}
+
+@media screen and (max-width: 752px) {
+    .map-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    #map {
+        height: 400px;
+    }
+
+    .places-container {
+        height: 400px;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .title-icon {
+        display: none !important;
+    }
+
+    .controls {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+    }
+
+    .btn-pages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+    }
+}

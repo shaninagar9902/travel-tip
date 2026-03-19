@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/map.ico">
+    <title>Travel Tip</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Travel Tip</h1>
+        </nav>
+    </header>
+    <main>
+        <input type="search" class="search" placeholder="Enter location...">
+        <button onclick="onPanTo()" class="btn pan">Go</button>
+
+        <p>You are at: <span class="user-pos"></span></p>
+        <!-- <p>Locations:</p> -->
+        <section class="map-container">
+            <div id="map" center="20.370928, -86.8845?75" zoom="12" , style="width: 100%; height: 400px;"></div>
+            <!-- <gmp-map map-id="DEMO_MAP_ID"></gmp-map> -->
+            <div class="actions-btn">
+                <!-- <button onclick="onAddMarker()" class="btn add-marker">Add Marker Speific Location</button> -->
+                <button onclick="onGetUserPos()" class="btn user-pos">Get User Position</button>
+                <!-- <button onclick="onGetLocs()" class="btn get-locs">Get Locations</button> -->
+                <button onclick="onMyLoc()" class="btn my-loc">Take me to my location</button>
+                <button onclick="onCopyLink()" class="btn copy">Copy link</button>
+
+            </div>
+            <table class="locs">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>lat</th>
+                        <th>lng</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="loc-list"></tbody>
+            </table>
+        </section>
+        <footer>This website was built by &copy;Shaniki</footer>
+    </main>
+    <script type="module" src="js/app.controller.js"></script>
+</body>
+
+</html>
