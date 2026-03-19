@@ -15,6 +15,7 @@ function onInit() {
         .then(() => {
             console.log('Map is ready')
             onGetLocs()
+            checkPrm()
         })
         .catch(() => console.log('Error: cannot init map'))
 }
@@ -29,7 +30,10 @@ function getPosition() {
 
 function onAddMarker() {
     console.log('Adding a marker')
-    mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
+    const loc = mapService.getLastClickedLoc()
+    if (!loc) return alert('Click on the map first!')
+    mapService.addMarker(loc)
+
 }
 
 function onGetLocs() {
@@ -111,10 +115,17 @@ function onCopyLink() {
         // .catch(err => console.error('Error!', err))
         .catch(() => prompt('Copy this!', url))
 }
-// console.log(location.href)
 
 // https://github.io/me/travelTip/index.html?lat=3.14&lng=1.63 
 
 function checkPrm() {
-
+    const url = new URLSearchParams(window.location.search)
+    const lat = url.get('lat')
+    const lng = url.get('lng')
+    // console.log(url, lat, lng);
+    if (!lat || !lng) return
+    const parseLat = parseFloat(lat)
+    const parseLng = parseFloat(lng)
+    mapService.panTo(parseLat, parseLng)
+    mapService.addMarker({ lat: parseLat, lng: parseLng })
 }
